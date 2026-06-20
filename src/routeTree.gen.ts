@@ -9,10 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProviderRouteImport } from './routes/provider'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProviderIndexRouteImport } from './routes/provider.index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as ProviderSharedRouteImport } from './routes/provider.shared'
+import { Route as ProviderHistoryRouteImport } from './routes/provider.history'
+import { Route as ProviderCodeRouteImport } from './routes/provider.code'
 import { Route as AppShareRouteImport } from './routes/app.share'
 import { Route as AppSettingsRouteImport } from './routes/app.settings'
 import { Route as AppRequestsRouteImport } from './routes/app.requests'
@@ -21,6 +26,11 @@ import { Route as AppHospitalsRouteImport } from './routes/app.hospitals'
 import { Route as AppDocumentsRouteImport } from './routes/app.documents'
 import { Route as AppAssistantRouteImport } from './routes/app.assistant'
 
+const ProviderRoute = ProviderRouteImport.update({
+  id: '/provider',
+  path: '/provider',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
@@ -36,10 +46,30 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProviderIndexRoute = ProviderIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProviderRoute,
+} as any)
 const AppIndexRoute = AppIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AppRoute,
+} as any)
+const ProviderSharedRoute = ProviderSharedRouteImport.update({
+  id: '/shared',
+  path: '/shared',
+  getParentRoute: () => ProviderRoute,
+} as any)
+const ProviderHistoryRoute = ProviderHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => ProviderRoute,
+} as any)
+const ProviderCodeRoute = ProviderCodeRouteImport.update({
+  id: '/code',
+  path: '/code',
+  getParentRoute: () => ProviderRoute,
 } as any)
 const AppShareRoute = AppShareRouteImport.update({
   id: '/share',
@@ -81,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/provider': typeof ProviderRouteWithChildren
   '/app/assistant': typeof AppAssistantRoute
   '/app/documents': typeof AppDocumentsRoute
   '/app/hospitals': typeof AppHospitalsRoute
@@ -88,7 +119,11 @@ export interface FileRoutesByFullPath {
   '/app/requests': typeof AppRequestsRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/share': typeof AppShareRoute
+  '/provider/code': typeof ProviderCodeRoute
+  '/provider/history': typeof ProviderHistoryRoute
+  '/provider/shared': typeof ProviderSharedRoute
   '/app/': typeof AppIndexRoute
+  '/provider/': typeof ProviderIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -100,13 +135,18 @@ export interface FileRoutesByTo {
   '/app/requests': typeof AppRequestsRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/share': typeof AppShareRoute
+  '/provider/code': typeof ProviderCodeRoute
+  '/provider/history': typeof ProviderHistoryRoute
+  '/provider/shared': typeof ProviderSharedRoute
   '/app': typeof AppIndexRoute
+  '/provider': typeof ProviderIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/provider': typeof ProviderRouteWithChildren
   '/app/assistant': typeof AppAssistantRoute
   '/app/documents': typeof AppDocumentsRoute
   '/app/hospitals': typeof AppHospitalsRoute
@@ -114,7 +154,11 @@ export interface FileRoutesById {
   '/app/requests': typeof AppRequestsRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/share': typeof AppShareRoute
+  '/provider/code': typeof ProviderCodeRoute
+  '/provider/history': typeof ProviderHistoryRoute
+  '/provider/shared': typeof ProviderSharedRoute
   '/app/': typeof AppIndexRoute
+  '/provider/': typeof ProviderIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -122,6 +166,7 @@ export interface FileRouteTypes {
     | '/'
     | '/app'
     | '/auth'
+    | '/provider'
     | '/app/assistant'
     | '/app/documents'
     | '/app/hospitals'
@@ -129,7 +174,11 @@ export interface FileRouteTypes {
     | '/app/requests'
     | '/app/settings'
     | '/app/share'
+    | '/provider/code'
+    | '/provider/history'
+    | '/provider/shared'
     | '/app/'
+    | '/provider/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -141,12 +190,17 @@ export interface FileRouteTypes {
     | '/app/requests'
     | '/app/settings'
     | '/app/share'
+    | '/provider/code'
+    | '/provider/history'
+    | '/provider/shared'
     | '/app'
+    | '/provider'
   id:
     | '__root__'
     | '/'
     | '/app'
     | '/auth'
+    | '/provider'
     | '/app/assistant'
     | '/app/documents'
     | '/app/hospitals'
@@ -154,17 +208,29 @@ export interface FileRouteTypes {
     | '/app/requests'
     | '/app/settings'
     | '/app/share'
+    | '/provider/code'
+    | '/provider/history'
+    | '/provider/shared'
     | '/app/'
+    | '/provider/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
   AuthRoute: typeof AuthRoute
+  ProviderRoute: typeof ProviderRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/provider': {
+      id: '/provider'
+      path: '/provider'
+      fullPath: '/provider'
+      preLoaderRoute: typeof ProviderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
@@ -186,12 +252,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/provider/': {
+      id: '/provider/'
+      path: '/'
+      fullPath: '/provider/'
+      preLoaderRoute: typeof ProviderIndexRouteImport
+      parentRoute: typeof ProviderRoute
+    }
     '/app/': {
       id: '/app/'
       path: '/'
       fullPath: '/app/'
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
+    }
+    '/provider/shared': {
+      id: '/provider/shared'
+      path: '/shared'
+      fullPath: '/provider/shared'
+      preLoaderRoute: typeof ProviderSharedRouteImport
+      parentRoute: typeof ProviderRoute
+    }
+    '/provider/history': {
+      id: '/provider/history'
+      path: '/history'
+      fullPath: '/provider/history'
+      preLoaderRoute: typeof ProviderHistoryRouteImport
+      parentRoute: typeof ProviderRoute
+    }
+    '/provider/code': {
+      id: '/provider/code'
+      path: '/code'
+      fullPath: '/provider/code'
+      preLoaderRoute: typeof ProviderCodeRouteImport
+      parentRoute: typeof ProviderRoute
     }
     '/app/share': {
       id: '/app/share'
@@ -269,10 +363,29 @@ const AppRouteChildren: AppRouteChildren = {
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
+interface ProviderRouteChildren {
+  ProviderCodeRoute: typeof ProviderCodeRoute
+  ProviderHistoryRoute: typeof ProviderHistoryRoute
+  ProviderSharedRoute: typeof ProviderSharedRoute
+  ProviderIndexRoute: typeof ProviderIndexRoute
+}
+
+const ProviderRouteChildren: ProviderRouteChildren = {
+  ProviderCodeRoute: ProviderCodeRoute,
+  ProviderHistoryRoute: ProviderHistoryRoute,
+  ProviderSharedRoute: ProviderSharedRoute,
+  ProviderIndexRoute: ProviderIndexRoute,
+}
+
+const ProviderRouteWithChildren = ProviderRoute._addFileChildren(
+  ProviderRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
   AuthRoute: AuthRoute,
+  ProviderRoute: ProviderRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
