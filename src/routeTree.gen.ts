@@ -10,11 +10,25 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppShareRouteImport } from './routes/app.share'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppRequestsRouteImport } from './routes/app.requests'
+import { Route as AppLogsRouteImport } from './routes/app.logs'
+import { Route as AppHospitalsRouteImport } from './routes/app.hospitals'
+import { Route as AppDocumentsRouteImport } from './routes/app.documents'
+import { Route as AppAssistantRouteImport } from './routes/app.assistant'
 
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,30 +36,130 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppShareRoute = AppShareRouteImport.update({
+  id: '/share',
+  path: '/share',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRequestsRoute = AppRequestsRouteImport.update({
+  id: '/requests',
+  path: '/requests',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLogsRoute = AppLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHospitalsRoute = AppHospitalsRouteImport.update({
+  id: '/hospitals',
+  path: '/hospitals',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDocumentsRoute = AppDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAssistantRoute = AppAssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/app/assistant': typeof AppAssistantRoute
+  '/app/documents': typeof AppDocumentsRoute
+  '/app/hospitals': typeof AppHospitalsRoute
+  '/app/logs': typeof AppLogsRoute
+  '/app/requests': typeof AppRequestsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/share': typeof AppShareRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/app/assistant': typeof AppAssistantRoute
+  '/app/documents': typeof AppDocumentsRoute
+  '/app/hospitals': typeof AppHospitalsRoute
+  '/app/logs': typeof AppLogsRoute
+  '/app/requests': typeof AppRequestsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/share': typeof AppShareRoute
+  '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/app/assistant': typeof AppAssistantRoute
+  '/app/documents': typeof AppDocumentsRoute
+  '/app/hospitals': typeof AppHospitalsRoute
+  '/app/logs': typeof AppLogsRoute
+  '/app/requests': typeof AppRequestsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/share': typeof AppShareRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/auth'
+    | '/app/assistant'
+    | '/app/documents'
+    | '/app/hospitals'
+    | '/app/logs'
+    | '/app/requests'
+    | '/app/settings'
+    | '/app/share'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth'
-  id: '__root__' | '/' | '/auth'
+  to:
+    | '/'
+    | '/auth'
+    | '/app/assistant'
+    | '/app/documents'
+    | '/app/hospitals'
+    | '/app/logs'
+    | '/app/requests'
+    | '/app/settings'
+    | '/app/share'
+    | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/auth'
+    | '/app/assistant'
+    | '/app/documents'
+    | '/app/hospitals'
+    | '/app/logs'
+    | '/app/requests'
+    | '/app/settings'
+    | '/app/share'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
   AuthRoute: typeof AuthRoute
 }
 
@@ -58,6 +172,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,11 +186,92 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/share': {
+      id: '/app/share'
+      path: '/share'
+      fullPath: '/app/share'
+      preLoaderRoute: typeof AppShareRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/requests': {
+      id: '/app/requests'
+      path: '/requests'
+      fullPath: '/app/requests'
+      preLoaderRoute: typeof AppRequestsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/logs': {
+      id: '/app/logs'
+      path: '/logs'
+      fullPath: '/app/logs'
+      preLoaderRoute: typeof AppLogsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/hospitals': {
+      id: '/app/hospitals'
+      path: '/hospitals'
+      fullPath: '/app/hospitals'
+      preLoaderRoute: typeof AppHospitalsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/documents': {
+      id: '/app/documents'
+      path: '/documents'
+      fullPath: '/app/documents'
+      preLoaderRoute: typeof AppDocumentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/assistant': {
+      id: '/app/assistant'
+      path: '/assistant'
+      fullPath: '/app/assistant'
+      preLoaderRoute: typeof AppAssistantRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppAssistantRoute: typeof AppAssistantRoute
+  AppDocumentsRoute: typeof AppDocumentsRoute
+  AppHospitalsRoute: typeof AppHospitalsRoute
+  AppLogsRoute: typeof AppLogsRoute
+  AppRequestsRoute: typeof AppRequestsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppShareRoute: typeof AppShareRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAssistantRoute: AppAssistantRoute,
+  AppDocumentsRoute: AppDocumentsRoute,
+  AppHospitalsRoute: AppHospitalsRoute,
+  AppLogsRoute: AppLogsRoute,
+  AppRequestsRoute: AppRequestsRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppShareRoute: AppShareRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
   AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
