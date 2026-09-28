@@ -1,41 +1,40 @@
-# Noyal Health Hub
+# NOYAL HEALTH HUB
 
-> **A modern digital health experience prototype.**
+![Cinematic hero](https://capsule-render.vercel.app/api?type=rect&color=0:091412,100:1B332A&height=230&text=NOYAL%20HEALTH%20HUB&fontColor=F3F3EE&fontSize=40&fontAlignY=38&desc=DIGITAL%20HEALTH%20%2F%20CARE%20UX&descColor=999991&descSize=12&descAlignY=66&animation=scaleIn)
 
-Noyal Health Hub is part of K. Kishor Kumar's public engineering portfolio, exploring practical product ideas through modern web development and iterative prototyping.
+> **DIGITAL HEALTH / CARE UX.**
 
-## Highlights
+## THE PREMISE
 
-- Responsive product-oriented interface
-- Modular implementation designed for iteration
-- Clear separation between prototype concepts and production claims
-- Built as an independent engineering experiment
+Noyal Health Hub explores a cleaner digital-health experience where essential patient-facing information is easier to navigate, understand and act on.
 
-## Stack
+## THE EXPERIENCE
+
+**Put the important signal first.**  
+**Design for calm under uncertainty.**  
+**Keep sensitive workflows deliberate.**
+
+## THE SYSTEM
+
+The current frontend is a product prototype. Environment configuration has been removed from the tracked public branch; future integrations should keep credentials server-side and treat health data as sensitive.
+
+## THE STACK
 
 React · TypeScript · Vite · Tailwind CSS
 
-## Run locally
+## RUN
 
-~~~bash
+```bash
 npm install
 npm run dev
-~~~
+```
 
-For a production build:
+## PROJECT STATE
 
-~~~bash
-npm run build
-~~~
+**Digital-health product prototype**
 
-## Status
-
-**Health-tech prototype**
-
-## Author
-
-**K. Kishor Kumar** · [GitHub @Kishordiu](https://github.com/Kishordiu)
+Implemented behaviour is documented separately from future integrations so the project story stays honest as the product evolves.
 
 ---
 
-<p align="center">Built with curiosity, iteration and engineering discipline.</p>
+<p align="center"><strong>K. KISHOR KUMAR</strong><br><sub>ENGINEERING / PRODUCT / SYSTEMS</sub></p>
