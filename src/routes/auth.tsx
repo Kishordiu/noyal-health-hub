@@ -34,7 +34,10 @@ function AuthPage() {
         style={{ background: "var(--gradient-radial-gold)" }}
       />
       <div className="relative w-full max-w-md">
-        <Link to="/" className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+        <Link
+          to="/"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="h-3.5 w-3.5" /> Back
         </Link>
         <div className="rounded-3xl glass-strong p-7">
@@ -44,7 +47,9 @@ function AuthPage() {
               {mode === "login" ? "Welcome back" : "Create your account"}
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              {mode === "login" ? "Sign in to your secure vault." : "Start securing your records in minutes."}
+              {mode === "login"
+                ? "Sign in to your secure vault."
+                : "Start securing your records in minutes."}
             </p>
           </div>
 
@@ -54,10 +59,16 @@ function AuthPage() {
                 key={r}
                 onClick={() => setRole(r)}
                 className={`flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
-                  role === r ? "bg-gradient-gold text-charcoal shadow-gold-glow" : "text-muted-foreground"
+                  role === r
+                    ? "bg-gradient-gold text-charcoal shadow-gold-glow"
+                    : "text-muted-foreground"
                 }`}
               >
-                {r === "patient" ? <User className="h-3.5 w-3.5" /> : <Stethoscope className="h-3.5 w-3.5" />}
+                {r === "patient" ? (
+                  <User className="h-3.5 w-3.5" />
+                ) : (
+                  <Stethoscope className="h-3.5 w-3.5" />
+                )}
                 {r === "patient" ? "Patient" : "Provider"}
               </button>
             ))}
@@ -78,7 +89,10 @@ function AuthPage() {
               <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" placeholder="••••••••" required />
             </div>
-            <Button type="submit" className="w-full rounded-xl bg-gradient-gold text-charcoal hover:opacity-90">
+            <Button
+              type="submit"
+              className="w-full rounded-xl bg-gradient-gold text-charcoal hover:opacity-90"
+            >
               {mode === "login" ? "Sign in" : "Create account"}
             </Button>
           </form>

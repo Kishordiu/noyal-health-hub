@@ -51,8 +51,12 @@ export const Route = createFileRoute("/app/documents")({
                 <td className="hidden px-5 py-3.5 text-muted-foreground sm:table-cell">{d.date}</td>
                 <td className="px-5 py-3.5 text-right">
                   <div className="inline-flex gap-1">
-                    <Button variant="ghost" size="icon" className="h-8 w-8"><Download className="h-3.5 w-3.5" /></Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8"><MoreHorizontal className="h-3.5 w-3.5" /></Button>
+                    <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <Download className="h-3.5 w-3.5" />
+                    </Button>
+                    <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <MoreHorizontal className="h-3.5 w-3.5" />
+                    </Button>
                   </div>
                 </td>
               </tr>

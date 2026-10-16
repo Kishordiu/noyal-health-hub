@@ -12,14 +12,26 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Product</h4>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Product
+          </h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a href="#features" className="hover:text-foreground">Features</a></li>
-            <li><a href="#security" className="hover:text-foreground">Security</a></li>
+            <li>
+              <a href="#features" className="hover:text-foreground">
+                Features
+              </a>
+            </li>
+            <li>
+              <a href="#security" className="hover:text-foreground">
+                Security
+              </a>
+            </li>
           </ul>
         </div>
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Contact</h4>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Contact
+          </h4>
           <a
             href="tel:+919677285223"
             className="mt-3 inline-flex items-center gap-2 text-sm text-foreground hover:text-gold-deep"

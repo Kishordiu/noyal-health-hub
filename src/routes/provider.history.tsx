@@ -11,7 +11,11 @@ const history = [
 export const Route = createFileRoute("/provider/history")({
   component: () => (
     <div>
-      <PageHeader eyebrow="Audit" title="Access History" description="Your past consented sessions." />
+      <PageHeader
+        eyebrow="Audit"
+        title="Access History"
+        description="Your past consented sessions."
+      />
       <div className="overflow-hidden rounded-2xl glass">
         <table className="w-full text-sm">
           <thead className="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
@@ -31,9 +35,13 @@ export const Route = createFileRoute("/provider/history")({
                     <span className="font-medium">{h.patient}</span>
                   </div>
                 </td>
-                <td className="hidden px-5 py-3.5 text-muted-foreground sm:table-cell">{h.docs} shared</td>
+                <td className="hidden px-5 py-3.5 text-muted-foreground sm:table-cell">
+                  {h.docs} shared
+                </td>
                 <td className="px-5 py-3.5 text-muted-foreground">{h.date}</td>
-                <td className="hidden px-5 py-3.5 text-muted-foreground md:table-cell">{h.duration}</td>
+                <td className="hidden px-5 py-3.5 text-muted-foreground md:table-cell">
+                  {h.duration}
+                </td>
               </tr>
             ))}
           </tbody>

@@ -22,28 +22,46 @@ export function Hero() {
             Records <span className="text-gradient-gold">Management</span> Platform
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Store, share, and control your medical documents securely with
-            time-limited access and complete transparency.
+            Store, share, and control your medical documents securely with time-limited access and
+            complete transparency.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button asChild size="lg" className="rounded-xl bg-gradient-gold text-charcoal hover:opacity-90">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-xl bg-gradient-gold text-charcoal hover:opacity-90"
+            >
               <Link to="/auth">
                 Create Account <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-xl border-gold/40 bg-card/60 backdrop-blur">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-xl border-gold/40 bg-card/60 backdrop-blur"
+            >
               <Link to="/auth">Login</Link>
             </Button>
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6 text-xs text-muted-foreground">
-            <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-gold" /> HIPAA-aligned</span>
-            <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-gold" /> End-to-end encrypted</span>
-            <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-gold" /> Audit logged</span>
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> HIPAA-aligned
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> End-to-end encrypted
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Audit logged
+            </span>
           </div>
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-6 rounded-[2rem] bg-gradient-gold opacity-20 blur-3xl" aria-hidden />
+          <div
+            className="absolute -inset-6 rounded-[2rem] bg-gradient-gold opacity-20 blur-3xl"
+            aria-hidden
+          />
           <div className="relative overflow-hidden rounded-[1.75rem] glass-strong">
             <img
               src={heroImg}

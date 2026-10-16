@@ -1,9 +1,21 @@
 import { Clock, UserCheck, FileLock2 } from "lucide-react";
 
 const pillars = [
-  { icon: UserCheck, title: "Patient-Approved Access", desc: "Every share requires explicit consent — no exceptions." },
-  { icon: Clock, title: "Time-Limited Windows", desc: "15 minutes, 1 hour, or a custom duration. Access expires automatically." },
-  { icon: FileLock2, title: "Full Transparency", desc: "Download a signed PDF report of who viewed what, when, and for how long." },
+  {
+    icon: UserCheck,
+    title: "Patient-Approved Access",
+    desc: "Every share requires explicit consent — no exceptions.",
+  },
+  {
+    icon: Clock,
+    title: "Time-Limited Windows",
+    desc: "15 minutes, 1 hour, or a custom duration. Access expires automatically.",
+  },
+  {
+    icon: FileLock2,
+    title: "Full Transparency",
+    desc: "Download a signed PDF report of who viewed what, when, and for how long.",
+  },
 ];
 
 export function Security() {

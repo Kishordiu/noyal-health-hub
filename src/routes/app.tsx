@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  LayoutDashboard, FileText, Share2, BellRing, Bot, Hospital, ScrollText, Settings,
+  LayoutDashboard,
+  FileText,
+  Share2,
+  BellRing,
+  Bot,
+  Hospital,
+  ScrollText,
+  Settings,
 } from "lucide-react";
 import { PortalShell, type NavItem } from "@/components/portal/PortalShell";
 

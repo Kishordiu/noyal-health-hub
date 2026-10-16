@@ -4,10 +4,34 @@ import { PageHeader } from "@/components/portal/PageHeader";
 import { Button } from "@/components/ui/button";
 
 const logs = [
-  { who: "Dr. Anitha Rao", doc: "Blood Report - Nov 2026", action: "Viewed", time: "Nov 19, 12:04 PM", duration: "4 min" },
-  { who: "Apollo Hospital", doc: "MRI Spine", action: "Downloaded", time: "Nov 18, 09:21 AM", duration: "—" },
-  { who: "Dr. Karthik V.", doc: "ECG_Oct.pdf", action: "Viewed", time: "Nov 17, 06:42 PM", duration: "2 min" },
-  { who: "System", doc: "Share NX-7H2K", action: "Expired", time: "Nov 17, 06:00 PM", duration: "—" },
+  {
+    who: "Dr. Anitha Rao",
+    doc: "Blood Report - Nov 2026",
+    action: "Viewed",
+    time: "Nov 19, 12:04 PM",
+    duration: "4 min",
+  },
+  {
+    who: "Apollo Hospital",
+    doc: "MRI Spine",
+    action: "Downloaded",
+    time: "Nov 18, 09:21 AM",
+    duration: "—",
+  },
+  {
+    who: "Dr. Karthik V.",
+    doc: "ECG_Oct.pdf",
+    action: "Viewed",
+    time: "Nov 17, 06:42 PM",
+    duration: "2 min",
+  },
+  {
+    who: "System",
+    doc: "Share NX-7H2K",
+    action: "Expired",
+    time: "Nov 17, 06:00 PM",
+    duration: "—",
+  },
 ];
 
 export const Route = createFileRoute("/app/logs")({
@@ -45,10 +69,14 @@ export const Route = createFileRoute("/app/logs")({
                 </td>
                 <td className="hidden px-5 py-3.5 text-muted-foreground sm:table-cell">{l.doc}</td>
                 <td className="px-5 py-3.5">
-                  <span className="rounded-full bg-gradient-gold/30 px-2.5 py-0.5 text-xs">{l.action}</span>
+                  <span className="rounded-full bg-gradient-gold/30 px-2.5 py-0.5 text-xs">
+                    {l.action}
+                  </span>
                 </td>
                 <td className="hidden px-5 py-3.5 text-muted-foreground md:table-cell">{l.time}</td>
-                <td className="hidden px-5 py-3.5 text-muted-foreground md:table-cell">{l.duration}</td>
+                <td className="hidden px-5 py-3.5 text-muted-foreground md:table-cell">
+                  {l.duration}
+                </td>
               </tr>
             ))}
           </tbody>

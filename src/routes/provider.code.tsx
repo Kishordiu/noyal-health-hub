@@ -13,13 +13,19 @@ function CodePage() {
   const navigate = useNavigate();
   return (
     <div>
-      <PageHeader eyebrow="Consent" title="Enter Share Code" description="Patient consent is required for every session." />
+      <PageHeader
+        eyebrow="Consent"
+        title="Enter Share Code"
+        description="Patient consent is required for every session."
+      />
       <div className="mx-auto max-w-md rounded-2xl glass-strong p-7">
         <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-gold/30 text-gold-deep">
           <KeyRound className="h-5 w-5" />
         </span>
         <h3 className="mt-4 font-display text-lg font-semibold">Patient Share Code</h3>
-        <p className="mt-1 text-sm text-muted-foreground">Enter the 6-character code provided by your patient.</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Enter the 6-character code provided by your patient.
+        </p>
 
         <input
           value={code}

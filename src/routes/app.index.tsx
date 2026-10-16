@@ -28,14 +28,20 @@ function Dashboard() {
         eyebrow="Overview"
         title="Welcome back, Noyal"
         description="Here's what's happening with your records today."
-        action={<Button className="rounded-xl bg-gradient-gold text-charcoal hover:opacity-90">Upload Record</Button>}
+        action={
+          <Button className="rounded-xl bg-gradient-gold text-charcoal hover:opacity-90">
+            Upload Record
+          </Button>
+        }
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map(({ icon: Icon, label, value, change }) => (
           <div key={label} className="rounded-2xl glass p-5 hover-lift">
             <div className="flex items-center justify-between">
-              <span className="text-xs uppercase tracking-wider text-muted-foreground">{label}</span>
+              <span className="text-xs uppercase tracking-wider text-muted-foreground">
+                {label}
+              </span>
               <Icon className="h-4 w-4 text-gold-deep" />
             </div>
             <div className="mt-3 font-display text-3xl font-semibold">{value}</div>

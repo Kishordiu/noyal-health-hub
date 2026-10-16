@@ -69,13 +69,13 @@
   --radius: 1.25rem; /* 20px */
 
   /* Brand */
-  --gold: oklch(0.78 0.13 85);          /* #D4AF37 rich gold */
+  --gold: oklch(0.78 0.13 85); /* #D4AF37 rich gold */
   --gold-soft: oklch(0.88 0.08 88);
   --gold-deep: oklch(0.62 0.13 78);
-  --charcoal: oklch(0.22 0.005 270);    /* #1A1A1A */
-  --beige: oklch(0.975 0.012 90);       /* #F8F5EE */
+  --charcoal: oklch(0.22 0.005 270); /* #1A1A1A */
+  --beige: oklch(0.975 0.012 90); /* #F8F5EE */
 
-  --background: oklch(0.99 0.005 90);   /* near soft white with warm tint */
+  --background: oklch(0.99 0.005 90); /* near soft white with warm tint */
   --foreground: oklch(0.22 0.005 270);
 
   --card: oklch(1 0 0);
@@ -119,13 +119,21 @@
   --sidebar-ring: oklch(0.78 0.13 85);
 
   /* Gradients & shadows */
-  --gradient-beige: linear-gradient(180deg, #F8F5EE 0%, #FFFDF8 100%);
+  --gradient-beige: linear-gradient(180deg, #f8f5ee 0%, #fffdf8 100%);
   --gradient-gold: linear-gradient(135deg, oklch(0.82 0.13 88), oklch(0.68 0.14 78));
-  --gradient-radial-gold: radial-gradient(circle at 30% 20%, oklch(0.88 0.1 88 / 0.4), transparent 60%);
+  --gradient-radial-gold: radial-gradient(
+    circle at 30% 20%,
+    oklch(0.88 0.1 88 / 0.4),
+    transparent 60%
+  );
 
-  --shadow-glass: 0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 30px -12px rgba(26,26,26,0.08), 0 4px 12px -6px rgba(212,175,55,0.08);
-  --shadow-elegant: 0 24px 60px -24px rgba(26,26,26,0.18), 0 8px 20px -10px rgba(212,175,55,0.12);
-  --shadow-gold-glow: 0 0 0 1px oklch(0.78 0.13 85 / 0.25), 0 12px 40px -12px oklch(0.78 0.13 85 / 0.4);
+  --shadow-glass:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 10px 30px -12px rgba(26, 26, 26, 0.08),
+    0 4px 12px -6px rgba(212, 175, 55, 0.08);
+  --shadow-elegant:
+    0 24px 60px -24px rgba(26, 26, 26, 0.18), 0 8px 20px -10px rgba(212, 175, 55, 0.12);
+  --shadow-gold-glow:
+    0 0 0 1px oklch(0.78 0.13 85 / 0.25), 0 12px 40px -12px oklch(0.78 0.13 85 / 0.4);
 }
 
 .dark {
@@ -167,8 +175,9 @@
   --sidebar-ring: oklch(0.82 0.13 85);
 
   --gradient-beige: linear-gradient(180deg, oklch(0.18 0.006 270) 0%, oklch(0.14 0.005 270) 100%);
-  --shadow-glass: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 30px -12px rgba(0,0,0,0.5);
-  --shadow-elegant: 0 24px 60px -24px rgba(0,0,0,0.6), 0 8px 20px -10px oklch(0.82 0.13 85 / 0.12);
+  --shadow-glass: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 10px 30px -12px rgba(0, 0, 0, 0.5);
+  --shadow-elegant:
+    0 24px 60px -24px rgba(0, 0, 0, 0.6), 0 8px 20px -10px oklch(0.82 0.13 85 / 0.12);
 }
 
 @layer base {
@@ -189,7 +198,10 @@
     background-attachment: fixed;
   }
 
-  h1, h2, h3, .font-display {
+  h1,
+  h2,
+  h3,
+  .font-display {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -233,7 +245,9 @@
 }
 
 @utility hover-lift {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
   &:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-elegant);

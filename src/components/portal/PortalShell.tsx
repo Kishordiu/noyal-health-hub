@@ -16,7 +16,8 @@ export function PortalShell({ items, title }: { items: NavItem[]; title: string 
         <Logo />
         <nav className="mt-8 flex flex-col gap-1">
           {items.map((it) => {
-            const active = pathname === it.to || (it.to !== "/" && pathname.startsWith(it.to + "/"));
+            const active =
+              pathname === it.to || (it.to !== "/" && pathname.startsWith(it.to + "/"));
             return (
               <Link
                 key={it.to}
@@ -48,7 +49,9 @@ export function PortalShell({ items, title }: { items: NavItem[]; title: string 
       <div className="md:pl-64">
         <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-border/60 bg-background/70 px-4 backdrop-blur-xl sm:px-8">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="md:hidden"><Logo compact /></div>
+            <div className="md:hidden">
+              <Logo compact />
+            </div>
             <h1 className="truncate font-display text-lg font-semibold sm:text-xl">{title}</h1>
           </div>
           <button className="grid h-9 w-9 place-items-center rounded-xl border border-border/60 bg-card/60 text-muted-foreground hover:text-foreground">

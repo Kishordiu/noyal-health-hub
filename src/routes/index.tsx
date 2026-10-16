@@ -9,9 +9,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "NoyalCabinet — Secure Medical Records Platform" },
-      { name: "description", content: "Store, share and control your medical documents with time-limited access and complete transparency." },
+      {
+        name: "description",
+        content:
+          "Store, share and control your medical documents with time-limited access and complete transparency.",
+      },
       { property: "og:title", content: "NoyalCabinet — Secure Medical Records" },
-      { property: "og:description", content: "Your Health Records. Your Control. Zero Trust Security." },
+      {
+        property: "og:description",
+        content: "Your Health Records. Your Control. Zero Trust Security.",
+      },
     ],
   }),
   component: Landing,

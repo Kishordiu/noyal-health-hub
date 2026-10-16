@@ -7,10 +7,17 @@ import { Button } from "@/components/ui/button";
 type Msg = { role: "user" | "ai"; text: string };
 
 const initial: Msg[] = [
-  { role: "ai", text: "Hi Noyal. I can answer questions about your records, summarize reports, or explain results. How can I help today?" },
+  {
+    role: "ai",
+    text: "Hi Noyal. I can answer questions about your records, summarize reports, or explain results. How can I help today?",
+  },
 ];
 
-const suggestions = ["Summarize my last blood report", "What's my LDL trend?", "Explain my MRI findings"];
+const suggestions = [
+  "Summarize my last blood report",
+  "What's my LDL trend?",
+  "Explain my MRI findings",
+];
 
 export const Route = createFileRoute("/app/assistant")({
   component: AssistantPage,
@@ -25,14 +32,21 @@ function AssistantPage() {
     setMessages((m) => [
       ...m,
       { role: "user", text },
-      { role: "ai", text: "Based on your records, this is a placeholder response. Real AI responses will be available once the assistant backend is wired up." },
+      {
+        role: "ai",
+        text: "Based on your records, this is a placeholder response. Real AI responses will be available once the assistant backend is wired up.",
+      },
     ]);
     setInput("");
   };
 
   return (
     <div className="flex h-[calc(100vh-9rem)] flex-col">
-      <PageHeader eyebrow="Private" title="AI Health Assistant" description="Trained on your records. Always private." />
+      <PageHeader
+        eyebrow="Private"
+        title="AI Health Assistant"
+        description="Trained on your records. Always private."
+      />
 
       <div className="flex-1 overflow-y-auto rounded-2xl glass p-5">
         <div className="mx-auto max-w-2xl space-y-4">
@@ -45,9 +59,7 @@ function AssistantPage() {
               )}
               <div
                 className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
-                  m.role === "user"
-                    ? "bg-charcoal text-background"
-                    : "bg-card/80 text-foreground"
+                  m.role === "user" ? "bg-charcoal text-background" : "bg-card/80 text-foreground"
                 }`}
               >
                 {m.text}
@@ -70,7 +82,10 @@ function AssistantPage() {
           ))}
         </div>
         <form
-          onSubmit={(e) => { e.preventDefault(); send(input); }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            send(input);
+          }}
           className="flex items-center gap-2 rounded-2xl glass-strong p-2"
         >
           <input
@@ -79,7 +94,11 @@ function AssistantPage() {
             placeholder="Ask anything about your health records…"
             className="flex-1 bg-transparent px-3 py-2 text-sm outline-none placeholder:text-muted-foreground"
           />
-          <Button type="submit" size="icon" className="rounded-xl bg-gradient-gold text-charcoal hover:opacity-90">
+          <Button
+            type="submit"
+            size="icon"
+            className="rounded-xl bg-gradient-gold text-charcoal hover:opacity-90"
+          >
             <Send className="h-4 w-4" />
           </Button>
         </form>

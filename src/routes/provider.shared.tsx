@@ -34,7 +34,9 @@ function SharedPage() {
         action={
           <div className="flex items-center gap-2 rounded-xl border border-gold/40 bg-card/60 px-4 py-2">
             <Clock className="h-4 w-4 text-gold-deep" />
-            <span className="font-mono text-sm font-semibold">{mm}:{ss}</span>
+            <span className="font-mono text-sm font-semibold">
+              {mm}:{ss}
+            </span>
             <span className="text-xs text-muted-foreground">until expiry</span>
           </div>
         }
@@ -42,14 +44,19 @@ function SharedPage() {
 
       <div className="grid gap-3">
         {docs.map((d) => (
-          <div key={d.name} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-2xl glass p-4 hover-lift">
+          <div
+            key={d.name}
+            className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-2xl glass p-4 hover-lift"
+          >
             <div className="flex min-w-0 items-center gap-3">
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-gold/30 text-gold-deep">
                 <FileText className="h-4 w-4" />
               </span>
               <div className="min-w-0">
                 <p className="truncate text-sm font-medium">{d.name}</p>
-                <p className="text-xs text-muted-foreground">{d.type} · {d.size}</p>
+                <p className="text-xs text-muted-foreground">
+                  {d.type} · {d.size}
+                </p>
               </div>
             </div>
             <Button size="sm" variant="outline" className="shrink-0 rounded-lg">
