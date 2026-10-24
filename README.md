@@ -1,6 +1,4 @@
-# NOYAL HEALTH HUB
-
-![Cinematic hero](https://capsule-render.vercel.app/api?type=rect&color=0:091412,100:1B332A&height=230&text=NOYAL%20HEALTH%20HUB&fontColor=F3F3EE&fontSize=40&fontAlignY=38&desc=DIGITAL%20HEALTH%20%2F%20CARE%20UX&descColor=999991&descSize=12&descAlignY=66&animation=scaleIn)
+![NOYAL HEALTH HUB — bespoke brushed-metal project artwork](./assets/readme-metal-hero.svg)
 
 > **DIGITAL HEALTH / CARE UX.**
 
