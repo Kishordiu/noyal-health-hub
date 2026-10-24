@@ -1,5 +1,7 @@
 ![NOYAL HEALTH HUB — bespoke brushed-metal project artwork](./assets/readme-metal-hero.svg)
 
+# NOYAL HEALTH HUB
+
 > **DIGITAL HEALTH / CARE UX.**
 
 ## THE PREMISE
