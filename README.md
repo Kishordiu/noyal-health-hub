@@ -1,55 +1,59 @@
 ![NOYAL HEALTH HUB — bespoke brushed-metal project artwork](./assets/readme-metal-hero.svg)
 
-# NOYAL HEALTH HUB
+# NOYAL CABINET
 
-> **DIGITAL HEALTH / CARE UX.**
+**A patient-controlled health-record sharing concept centred on consent, temporary access, and clear record organisation.**
 
-## THE PREMISE
+The repository is named `noyal-health-hub`; the application landing route currently brands the experience as **NoyalCabinet**. The interface explores a health-record workspace with feature sections for record organisation, temporary sharing, an AI assistant concept, hospital discovery, and access transparency.
 
-Noyal Health Hub explores a cleaner digital-health experience where essential patient-facing information is easier to navigate, understand and act on.
+The repository includes a Supabase integration directory, but that alone does not establish that storage, encryption, time-limited permissions, audit trails, or AI access controls are fully implemented and production-ready.
 
-## THE EXPERIENCE
+## The proposed patient journey
 
-**Put the important signal first.**  
-**Design for calm under uncertainty.**  
-**Keep sensitive workflows deliberate.**
+```text
+Organise a health document
+          │
+          ▼
+Choose what to share
+          │
+          ▼
+Set recipient and access window
+          │
+          ▼
+Review access and activity
+          │
+          ▼
+Revoke / expire access
+```
 
-## THE SYSTEM
+## Design principles
 
-The current frontend is a product prototype. Environment configuration has been removed from the tracked public branch; future integrations should keep credentials server-side and treat health data as sensitive.
+- **Patient agency:** Make sharing intent and scope visible before an action.
+- **Minimum necessary access:** Prefer specific records and limited time windows over broad sharing.
+- **Readable activity:** Present access history in language a patient can understand.
+- **Sensitive by default:** Never assume that a polished interface is an adequate privacy or security control.
 
-## THE STACK
+## Stack
 
-React · TypeScript · Vite · Tailwind CSS
+React · TypeScript · Vite · TanStack Router / Start · Supabase client · Tailwind CSS · Motion
 
-## RUN
+## Run locally
 
-**Requirements:** Node.js 20+ and Bun.
+**Requirements:** Node.js and Bun (recommended).
 
 ```bash
+git clone https://github.com/Kishordiu/noyal-health-hub.git
+cd noyal-health-hub
 bun install
 bun run dev
 ```
 
-For a production bundle and local preview:
+Use the local URL printed by Vite.
 
-```bash
-bun run build
-bun run preview
-```
+## Health-data boundary
 
-Run static checks with:
-
-```bash
-bun run lint
-```
-
-## PROJECT STATE
-
-**Digital-health product prototype**
-
-Implemented behaviour is documented separately from future integrations so the project story stays honest as the product evolves.
+**Prototype only. Do not upload real medical records or personal health information to an unreviewed deployment.** Before real use, verify authentication, authorisation, storage permissions, key management, signed access links, expiry and revocation behaviour, audit-log integrity, backups, data retention, incident handling, and applicable privacy requirements. An AI health assistant must not be represented as a clinician or a validated medical decision system.
 
 ---
 
-<p align="center"><strong>K. KISHOR KUMAR</strong><br><sub>ENGINEERING / PRODUCT / SYSTEMS</sub></p>
+<p align="center"><sub>DIU FOUNDRY · PATIENT AGENCY / PRIVACY-FIRST PRODUCT DESIGN</sub></p>
